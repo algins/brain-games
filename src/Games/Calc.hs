@@ -1,19 +1,24 @@
 module Games.Calc
-    ( calcGame
+    ( game
     ) where
 
 import System.Random
 import Types
 
-calcGame :: Game
-calcGame = Game (Description "What is the result of the expression?") $ 
-    PlayRound $ \gen -> 
-        let (num1, gen1) = randomNumber gen
-            (num2, gen2) = randomNumber gen1
-            (operator, gen3) = randomOperator gen2
-            question = show num1 ++ " " ++ [operator] ++ " " ++ show num2
-            answer = show $ calculate num1 num2 operator
-        in (Question question, Answer answer, gen3)
+game :: Game
+game = Game description playRound
+
+description :: Description
+description = Description "What is the result of the expression?"
+
+playRound :: PlayRound
+playRound = PlayRound $ \gen ->
+    let (num1, gen1) = randomNumber gen
+        (num2, gen2) = randomNumber gen1
+        (operator, gen3) = randomOperator gen2
+        question = Question $ show num1 ++ " " ++ [operator] ++ " " ++ show num2
+        answer = Answer $ show $ calculate num1 num2 operator
+    in (question, answer, gen3)
 
 randomNumber :: StdGen -> (Int, StdGen)
 randomNumber = randomR (1, 10)
