@@ -30,7 +30,7 @@ randomOperator gen =
     in (operators !! index, newGen)
 
 calculate :: Int -> Int -> Char -> Int
-calculate a b '+' = a + b
-calculate a b '-' = a - b
-calculate a b '*' = a * b
+calculate num1 num2 '+' = num1 + num2
+calculate num1 num2 '-' = num1 - num2
+calculate num1 num2 '*' = num1 * num2
 calculate _ _ _ = error "Invalid operator"

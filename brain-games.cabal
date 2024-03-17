@@ -27,6 +27,7 @@ library
   exposed-modules:
       Games.Calc
       Games.Even
+      Games.Prime
       Types
   other-modules:
       Paths_brain_games
