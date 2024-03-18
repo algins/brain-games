@@ -27,6 +27,7 @@ library
   exposed-modules:
       Games.Calc
       Games.Even
+      Games.Gcd
       Games.Prime
       Types
   other-modules:
