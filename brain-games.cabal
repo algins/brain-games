@@ -29,6 +29,7 @@ library
       Games.Even
       Games.Gcd
       Games.Prime
+      Games.Progression
       Types
   other-modules:
       Paths_brain_games
