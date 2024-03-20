@@ -4,6 +4,7 @@ module Games.Even
 
 import System.Random
 import Types
+import Utils
 
 game :: Game
 game = Game description playRound
@@ -13,7 +14,10 @@ description = Description "Answer \"yes\" if the number is even, otherwise answe
 
 playRound :: PlayRound
 playRound = PlayRound $ \gen ->
-    let (num, newGen) = randomR (1, 10) gen :: (Int, StdGen)
+    let (num, newGen) = randomR (1, 10) gen
         question = Question $ show num
-        answer = Answer $ if even num then "yes" else "no"
+        answer = Answer . convertToAffirmation $ isEven num
     in (question, answer, newGen)
+
+isEven :: Int -> Bool
+isEven num = num `mod` 2 == 0
