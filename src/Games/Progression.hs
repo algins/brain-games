@@ -1,18 +1,16 @@
-module Games.Progression
-    ( game
-    ) where
+module Games.Progression (game) where
 
 import System.Random
 import Types
 
 game :: Game
-game = Game description playRound
+game = Game description playRoundFn
 
 description :: Description
 description = Description "What number is missing in the progression?"
 
-playRound :: PlayRound
-playRound = PlayRound $ \gen ->
+playRoundFn :: PlayRoundFn
+playRoundFn = PlayRoundFn $ \gen ->
     let (start, gen1) = randomR (0, 10) gen
         (step, gen2) = randomR (1, 10) gen1
         (size, gen3) = randomR (5, 15) gen2

@@ -1,18 +1,16 @@
-module Games.Calc
-    ( game
-    ) where
+module Games.Calc (game) where
 
 import System.Random
 import Types
 
 game :: Game
-game = Game description playRound
+game = Game description playRoundFn
 
 description :: Description
 description = Description "What is the result of the expression?"
 
-playRound :: PlayRound
-playRound = PlayRound $ \gen ->
+playRoundFn :: PlayRoundFn
+playRoundFn = PlayRoundFn $ \gen ->
     let (num1, gen1) = randomR (1, 10) gen
         (num2, gen2) = randomR (1, 10) gen1
         (operator, gen3) = generateRandomOperator gen2

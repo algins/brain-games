@@ -1,18 +1,16 @@
-module Games.Gcd
-    ( game
-    ) where
+module Games.Gcd (game) where
 
 import System.Random
 import Types
 
 game :: Game
-game = Game description playRound
+game = Game description playRoundFn
 
 description :: Description
 description = Description "Find the greatest common divisor of given numbers."
 
-playRound :: PlayRound
-playRound = PlayRound $ \gen ->
+playRoundFn :: PlayRoundFn
+playRoundFn = PlayRoundFn $ \gen ->
     let (num1, gen1) = randomR (0, 10) gen
         (num2, gen2) = randomR (0, 10) gen1
         question = Question $ show num1 ++ " " ++ show num2
