@@ -1,8 +1,6 @@
 # brain-games
 A set of five console games, built on the principle of popular mobile brain training apps.
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/d9b7567c91aee35a2aa9/maintainability)](https://codeclimate.com/github/algins/brain-games/maintainability)
-
 ## Setup:
 ```sh
 $ git clone https://github.com/algins/brain-games.git
