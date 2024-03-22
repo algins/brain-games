@@ -1,15 +1,12 @@
 module Types
     ( Game(..)
-    , Description(..)
-    , PlayRoundFn(..)
-    , Question(..)
-    , Answer(..)
+    , PlayRoundFn
     ) where
 
 import System.Random (StdGen)
 
-newtype Question = Question String
-newtype Answer = Answer String
-newtype PlayRoundFn = PlayRoundFn (StdGen -> (Question, Answer, StdGen))
-newtype Description = Description String
+type Question = String
+type Answer = String
+type PlayRoundFn = StdGen -> (Question, Answer, StdGen)
+type Description = String
 data Game = Game Description PlayRoundFn

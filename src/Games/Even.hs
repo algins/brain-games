@@ -7,14 +7,14 @@ import Utils
 game :: Game
 game = Game description playRoundFn
 
-description :: Description
-description = Description "Answer \"yes\" if the number is even, otherwise answer \"no\"."
+description :: String
+description = "Answer \"yes\" if the number is even, otherwise answer \"no\"."
 
 playRoundFn :: PlayRoundFn
-playRoundFn = PlayRoundFn $ \gen ->
+playRoundFn gen =
     let (num, newGen) = randomR (1, 10) gen
-        question = Question $ show num
-        answer = Answer . convertToAffirmation $ isEven num
+        question = show num
+        answer = convertToAffirmation $ isEven num
     in (question, answer, newGen)
 
 isEven :: Int -> Bool
